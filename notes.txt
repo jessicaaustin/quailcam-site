@@ -1,0 +1,27 @@
+
+Hosting
+=======
+
+Already using ASmallOrange (ASO), which provides shell access to install python, django, etc. Uses MySQL database.
+
+
+Setup
+=====
+
+# Install mysql:
+sudo apt-get install mysql-server mysql-client # installs version 5.5, the same as on ASO
+sudo apt-get install python-mysqldb  # python mysql bindings
+# created jaustin user
+# then create quailcam db and user
+mysql> CREATE DATABASE quailcam CHARACTER SET utf8;
+mysql> CREATE USER 'quailcam'@'localhost' IDENTIFIED BY '<redacted>';
+mysql> GRANT ALL PRIVILEGES ON quailcam.* TO 'quailcam'@'localhost' WITH GRANT OPTION;
+mysql> FLUSH PRIVILEGES;
+# put quailcam user in ~/.my.quailcam.cnf
+
+# install django
+# I've already done this on my local box, following whatever basic tutorial they have on their site
+# On ASO, I used this tutorial: https://help.asmallorange.com/index.php?/Knowledgebase/Article/View/305/0/installing-django-using-virtualenv
+
+# build django project
+# again, just following the tutorials: https://docs.djangoproject.com/en/1.7/intro/tutorial01/
